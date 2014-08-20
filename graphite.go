@@ -52,6 +52,11 @@ func (graphite *Graphite) Connect() error {
 	return nil
 }
 
+func (graphite *Graphite) DisConnect() error {
+  graphite.conn.Close()
+  return nil
+}
+
 // Given a Metric struct, the SendMetric method sends the supplied metric to the
 // Graphite connection that the method is called upon
 func (graphite *Graphite) SendMetric(metric Metric) error {
