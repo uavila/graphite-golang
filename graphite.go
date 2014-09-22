@@ -41,7 +41,7 @@ func (graphite *Graphite) Connect() error {
 			graphite.Timeout = defaultTimeout * time.Second
 		}
 
-		conn, err := net.DialTimeout("tcp", address, graphite.Timeout)
+		conn, err := net.DialTimeout("udp", address, graphite.Timeout)
 		if err != nil {
 			return err
 		}
